@@ -1,10 +1,16 @@
 $( document ).ready(function() {
+    video = new Video()
+    controlsView = new ControlsView({model:video})
     steps = new Steps()
     steps.on("sync", function(eventName) {
       var step = steps.current()
+      pop = Popcorn("#video");
+
+      video.on("change:speed", function(){
+        pop.playbackRate(this.get("speed"))
+      })
 
       $('#play').on("click", function(evt){
-        pop = Popcorn("#video");
         pop.on("timeupdate", function(){
           $('#current-time').html(pop.currentTime())
         })
