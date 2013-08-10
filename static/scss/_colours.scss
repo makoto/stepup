@@ -1,0 +1,17 @@
+
+/* Colors
+---------------------------------------------------------------------------- */
+
+$clr_theme_1: #6A999A;  // teal
+$clr_theme_2: #eee;     // white
+$clr_theme_3: #004;     // blue
+
+$clr_bg_body: $clr_theme_2;
+$clr_text_body: #222;
+$clr_bdr: #333;
+
+$clr_link: $clr_text_body;
+$clr_link_hover: lighten($clr_link, 5%);
+$clr_link_active: darken($clr_link, 5%);
+
+$clr_cube: #ff0000;

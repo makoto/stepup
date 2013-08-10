@@ -1,0 +1,33 @@
+@import "_mixins";
+
+/* Typography
+---------------------------------------------------------------------------- */
+
+h1, h2, h3 {
+    font-family: helvetica, 'segoe ui', arial, roboto;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
+}
+
+body {
+    color: $clr_text_body;
+    font: {
+        family: helvetica, 'segoe ui', arial, roboto;
+        size: 0.9em;
+    }
+}
+
+a {
+    color: $clr_link;
+    text-decoration: none;
+    &:hover {
+        color: $clr_link_hover;
+    }
+    &:active {
+        color: $clr_link_active;
+    }
+}

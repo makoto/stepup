@@ -1,0 +1,9 @@
+node_modules/
+static/.sass-cache/
+/.sass-cache/
+static/css/
+static/dist/
+*.swp
+*.map
+index.html
+
