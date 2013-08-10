@@ -22,17 +22,56 @@
         <p>This app works better with JavaScript enabled.</p>
     </noscript>
 
-    <video height="180" width="300" id="video" controls> 
+    <video width="500" id="video" controls> 
       <source src="./data/FANC-qvJFhQ.mp4"></source>
     </video>
+    </section>
 
-    <button id="play">Play</button>
-    <button id="stop">Stop</button>
-    <button id="next">Next</button>
-    <button id="reset">Reset</button>
+    <section id="score">
+        <ul class="steps">
+            <li class="step-long">
+                <ul>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                </ul>
+            </li>
+            <li class="step-med">
+                <ul>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                </ul>
+            </li>
+            <li class="step-short">
+                <ul>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                    <li><button></button></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <div>
+      <button id="play">Play</button>
+      <button id="stop">Stop</button>
+      <button id="next">Next</button>
+      <button id="reset">Reset</button>
+    </div>
     <div id="current-time">
       
     </div>
+
+    <section id="controls">
+        <input type="range" id="tempo"/>
+    </section>
+
     <!--[if lt IE 9]>
         <script src="static/js/libs/jquery-1.10.1.min.js"></script>
     <![endif]-->
@@ -42,6 +81,10 @@
     <script src="static/js/libs/popcorn-complete.min.js"></script>
     <script src="static/js/libs/underscore-min.js"></script>
     <script src="static/js/libs/backbone-min.js"></script>
+    <script src="static/js/controls.js"></script>
+    <script src="static/js/video.js"></script>
+    <script src="static/js/step.js"></script>
+    <script src="static/js/steps.js"></script>
     <script src="static/js/App.js"></script>
   </body>
 </html>
