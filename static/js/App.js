@@ -1,16 +1,17 @@
 $( document ).ready(function() {
-    $.get("/data/segments.json").done(function(segments){
-      var segment = segments.shift()
+    steps = new Steps()
+    steps.on("sync", function(eventName) {
+      var step = steps.current()
 
       $('#play').on("click", function(evt){
         pop = Popcorn("#video");
         pop.on("timeupdate", function(){
           $('#current-time').html(pop.currentTime())
         })
-        pop.cue( segment.end_at, function() {
-          this.currentTime( segment.start_at );
+        pop.cue( step.get("end_at"), function() {
+          this.currentTime( step.get("start_at") );
         });
-        pop.currentTime( segment.start_at );
+        pop.currentTime( step.get("start_at") );
         pop.play();
       })
 
@@ -24,12 +25,16 @@ $( document ).ready(function() {
       })
 
       $('#next').on("click", function(evt){
-        segment = segments.shift()
-        pop.cue( segment.end_at, function() {
-          this.currentTime( segment.start_at );
+        step = steps.shift()
+        pop.cue( step.get("end_at"), function() {
+          this.currentTime( step.get("start_at") );
         });
-        pop.currentTime( segment.start_at );
+        pop.currentTime( step.get("start_at") );
         pop.play();
       })
-    })
+
+    });
+    steps.fetch()
+
+
 });
