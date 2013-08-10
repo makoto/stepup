@@ -1,6 +1,5 @@
 node_modules/
 static/.sass-cache/
 /.sass-cache/
-static/dist/
 *.swp
 *.map
