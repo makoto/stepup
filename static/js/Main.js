@@ -28,15 +28,6 @@ $( document ).ready(function() {
         pop.play();
       })
 
-      $('#stop').on("click", function(evt){
-        pop.pause()
-      })
-
-      $('#reset').on("click", function(evt){
-        pop.currentTime(0)
-        console.log(pop.currentTime)
-      })
-
       $('#next').on("click", function(evt){
         step = steps.next()
         pop.cue( step.get("end_at"), function() {
