@@ -38,11 +38,6 @@
         }
     });
 
+  App.KeyboardView = KeyboardView;
 
-
-    keyboardView = new KeyboardView({
-        el: document
-    });
-
-  App.KeyboardView = KeyboardView
 }(Backbone, jQuery, _, App.Events));
