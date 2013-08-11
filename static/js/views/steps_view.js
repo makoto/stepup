@@ -3,6 +3,7 @@
     var StepsView = Backbone.View.extend({
 
         initialize: function() {
+            this.selectCell(this.model)
             this.model.on('all', function(name){
               console.log('all', name)
             });
@@ -12,7 +13,6 @@
         },
 
         selectCell: function(model) {
-            console.log('should be video', model)
             this.$el.find('.selected-level').removeClass('selected-level');
             this.$el.find('.selected-step').removeClass('selected-step');
 
