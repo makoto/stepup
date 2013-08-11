@@ -21,9 +21,12 @@
     <body>
 
     <header>
-        <h1>Step Up</h1>
-        <h2>The HTML5 Video Looper</h2>
+        <a href="#"><img src="logo.png" /></a>
     </header>
+    
+    <h1>Step Up</h1>
+    <h2>The HTML5 Video Looper</h2>
+    
 
     <p>Use this app to loop video, making activities like learning instruments much easier. Start with the shortest loops at the bottom, and then Step Up to longer loops when you feel ready to progress.</p>
 
@@ -31,20 +34,10 @@
         <p>This app works better with JavaScript enabled.</p>
     </noscript>
 
-
-    <a href="#keyboard"><button>Keyboard Instructions</button></a>
-    <a href="#leap"><button>Leap Motion Instructions</button></a>
-
-    <section id="keyboard" class="instructions">
-        To navigate between the loops, use the arrow keys (&uarr;&larr;&darr;&rarr;)
-        <a href="#">Close</a>
-    </section>
-
-    <section id="leap" class="instructions">
-        To navigate between the loops using <a href="http://leapmotion.com/" target="_blank">Leap Motion</a> swipe left, right, bottom or top.
-        <a href="#">Close</a>
-    </section>
-
+    <video width="500" id="video" controls> 
+      <source src="./data/FANC-qvJFhQ.mp4"></source>
+      <source src="http://benkyo.s3-website-us-east-1.amazonaws.com/ukulele.mp4"></source>
+    </video>
     <div>
       <button id="play">Play</button>
       <button id="prev">Prev</button>
@@ -52,12 +45,61 @@
       <button id="up">Up</button>
       <button id="down">Down</button>
     </div>
+    
 
-    <video width="500" id="video" controls> 
-      <source src="./data/FANC-qvJFhQ.mp4"></source>
-      <source src="http://benkyo.s3-website-us-east-1.amazonaws.com/ukulele.mp4"></source>
-    </video>
+    <section class="instructionBtns">
+        <a href="#keyboard"><button>Keyboard Instructions</button></a>
+        <a href="#leap"><button>Leap Motion Instructions</button></a>
+    </section>
 
+    <section id="keyboard" class="instructions">
+        To navigate between the loops, use the arrow keys (&uarr;&larr;&darr;&rarr;)
+        <a href="#">Close</a>
+    </section>
+
+    <section id="leap" class="instructions">
+        To navigate between the loops using Leap Motion swipe left, right, bottom or top.
+        <a href="#">Close</a>
+    </section>
+
+
+
+    <section id="score">
+        <ul class="levels">
+            <li class="level-3">
+                <ul>
+                    <li><button data-step="1" data-level="3"></button></li>
+                    <li><button data-step="2" data-level="3"></button></li>
+                </ul>
+            </li>
+            <li class="level-2">
+                <ul>
+                    <li><button data-step="1" data-level="2"></button></li>
+                    <li><button data-step="2" data-level="2"></button></li>
+                    <li><button data-step="3" data-level="2"></button></li>
+                    <li><button data-step="4" data-level="2"></button></li>
+                </ul>
+            </li>
+            <li class="level-1">
+                <ul>
+                    <li><button data-step="1" data-level="1"></button></li>
+                    <li><button data-step="2" data-level="1"></button></li>
+                    <li><button data-step="3" data-level="1"></button></li>
+                    <li><button data-step="4" data-level="1"></button></li>
+                    <li><button data-step="5" data-level="1"></button></li>
+                    <li><button data-step="6" data-level="1"></button></li>
+                    <li><button data-step="7" data-level="1"></button></li>
+                    <li><button data-step="8" data-level="1"></button></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="controls">
+        <input type="range" id="tempo"  min="0.5" max="1.5" step="0.1" value="1" />
+        <span>Slow</span>
+        <span>Fast</span>
+    </section>
 
     Time:<span id="current-time">
       00:00
@@ -72,41 +114,6 @@
     <span id="to">
     </span>
 
-    <section id="controls">
-        0.5<input type="range" id="tempo" min="0.5" max="1.5" step="0.1" value="1" />1.5
-    </section>
-
-
-    <section id="score">
-        <ul class="levels">
-            <li class="level-3 step-long">
-                <ul>
-                    <li><button data-step="1" data-level="3"></button></li>
-                    <li><button data-step="2" data-level="3"></button></li>
-                </ul>
-            </li>
-            <li class="level-2 step-med">
-                <ul>
-                    <li><button data-step="1" data-level="2"></button></li>
-                    <li><button data-step="2" data-level="2"></button></li>
-                    <li><button data-step="3" data-level="2"></button></li>
-                    <li><button data-step="4" data-level="2"></button></li>
-                </ul>
-            </li>
-            <li class="level-1 step-short">
-                <ul>
-                    <li><button data-step="1" data-level="1"></button></li>
-                    <li><button data-step="2" data-level="1"></button></li>
-                    <li><button data-step="3" data-level="1"></button></li>
-                    <li><button data-step="4" data-level="1"></button></li>
-                    <li><button data-step="5" data-level="1"></button></li>
-                    <li><button data-step="6" data-level="1"></button></li>
-                    <li><button data-step="7" data-level="1"></button></li>
-                    <li><button data-step="8" data-level="1"></button></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
 
     <!--[if lt IE 9]>
         <script src="static/js/libs/jquery-1.10.1.min.js"></script>

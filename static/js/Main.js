@@ -8,6 +8,7 @@ $( document ).ready(function() {
     });
     controlsView = new App.ControlsView({model:video})
     keyboardView = new App.KeyboardView({el:document})
+    leapmotionView = new LeapmotionView({lm:Leap})
     levels = new App.Levels({video: video})
     levels.fetch()
     levels.on("sync", function(eventName) {
