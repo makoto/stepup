@@ -2,51 +2,54 @@
 {
   "id":1,
   "start_at":146,
-  "end_at":148
+  "end_at":148,
+  "next_level_step_id":1
 },
 {
   "id":2,
   "start_at":149,
-  "end_at":151
+  "end_at":151,
+  "next_level_step_id":1
 },
 {
   "id":3,
   "start_at":151,
-  "end_at":154
+  "end_at":154,
+  "next_level_step_id":2
 },
 {
   "id":4,
   "start_at":154,
-  "end_at":158
+  "end_at":158,
+  "next_level_step_id":2
 },
 {
   "id":5,
-  "start_at":154,
-  "end_at":158
+  "start_at":158,
+  "end_at":162,
+  "next_level_step_id":3
 },
 {
   "id":6,
   "start_at":162,
-  "end_at":164
+  "end_at":164,
+  "next_level_step_id":3
 },
 {
   "id":7,
   "start_at":164,
-  "end_at":167
+  "end_at":167,
+  "next_level_step_id":4
 },
 {
   "id":8,
   "start_at":167,
-  "end_at":170
+  "end_at":170,
+  "next_level_step_id":4
 },
 {
   "id":9,
   "start_at":171,
   "end_at":175
-},
-{
-  "id":10,
-  "start_at":176,
-  "end_at":180
 }
 ]
