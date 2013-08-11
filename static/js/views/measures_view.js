@@ -51,7 +51,6 @@
             $button.parent('li').addClass('selected-step');
 
         }
-
     });
 
 
@@ -60,5 +59,5 @@
         el: '#score',
         model: measuresModel
     });
-
+    App.MeasuresView = MeasuresView
 }(Backbone, $, _, eventBus));

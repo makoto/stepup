@@ -9,7 +9,5 @@
         initialize: function() {}
 
     });
-
-
-
+ App.ControlsView = ControlsView
 }());
