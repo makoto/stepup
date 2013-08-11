@@ -57,13 +57,6 @@ section#score{
 	background: none;
 }
 
-section#score .selected-step button{
-	transition: .5s;
-	-webkit-box-shadow: inset 2px 2px 1px 2px rgba(0, 0, 0, .7);
-	box-shadow: inset 2px 2px 1px 2px rgba(0, 0, 0, .7);
-}
-
-
 .level-4 button{
 	background-color: #990000;
 }
@@ -80,7 +73,15 @@ section#score .selected-step button{
 	background-color: #ffcccc;
 }
 
-section input[type=range]{
+section#controls span:nth-of-type(odd){
+	float: left;
+}
+
+section#controls span:nth-of-type(even){
+	float: right;
+}
+
+section#controls input[type=range]{
 	margin: 3em auto;
 	width: 95%;
 }
@@ -100,4 +101,39 @@ section input[type=range]{
 #keyboard:target, #leap:target{
   line-height: 1em;
   height: auto;
+}
+
+/* Loop Icon */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+section#score .selected-step button {
+	font-family: 'icomoon';
+	font-size: 1.5em;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	transition: .5s;
+}
+section#score .selected-step button:before {
+	content: "\e000";
 }
