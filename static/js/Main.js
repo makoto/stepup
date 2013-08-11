@@ -6,21 +6,19 @@ $( document ).ready(function() {
         el: '#score',
         model: video
     });
-    App.stepsView = stepsView
     controlsView = new App.ControlsView({model:video})
-    steps = new App.Steps({video: video})
-
+    keyboardView = new App.KeyboardView({el:document})
+    leapmotionView = new LeapmotionView({lm:Leap})
     levels = new App.Levels({video: video})
     levels.fetch()
-    console.log('3', video.get("level"))
     levels.on("sync", function(eventName) {
       steps = this.getSteps(video.get("level"))
-      console.log(4, steps)
       var step = steps.current()
       $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
       $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
       
       pop = Popcorn("#video");
+      pop.controls(false)
 
       video.on("change:speed", function(){
         pop.playbackRate(this.get("speed"))
@@ -38,24 +36,38 @@ $( document ).ready(function() {
       })
 
       $('#next').on("click", function(evt){
-        
-        step = steps.next()
+        pop = moveCue(pop, steps.next())
+      })
+
+      App.Events.on('step:next', function() {
+        pop = moveCue(pop, steps.next());
+      });
+
+      $('#back').on("click", function(evt){
+        pop = moveCue(pop, steps.prev())
+      })
+
+      App.Events.on('step:prev', function() {
+        pop = moveCue(pop, steps.prev());
+      });
+
+
+      var moveCue = function(pop, step){
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
-        
+
         pop.cue( step.get("end_at"), function() {
           this.currentTime( step.get("start_at") );
         });
         pop.currentTime( step.get("start_at") );
         pop.play();
-      })
+        return pop
+      }
 
-      $('#up').on("click", function(evt){
-        var next_level_id = video.get("level") + 1
-        steps = levels.getSteps(next_level_id)
-        step = levels.getStep(next_level_id, pop.currentTime())
-        console.log('steps', steps, 'step', step)
-        video.set({"step":step.get('id'), "level":next_level_id})
+      var resetCue = function(pop, levelid){
+        steps = levels.getSteps(levelid)
+        step = levels.getStep(levelid, pop.currentTime())
+        video.set({"step":step.get('id'), "level":levelid})
 
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
@@ -71,12 +83,32 @@ $( document ).ready(function() {
         });
         pop.currentTime( step.get('start_at'));
         pop.play();
-        console.log('time',pop.currentTime())
+        return pop
+      }
+
+      $('#down').on("click", function(){
+        var next_level_id = video.get("level") - 1
+        pop = resetCue(pop, next_level_id)
       })
+
+      App.Events.on('step:down', function() {
+        var next_level_id = video.get("level") - 1
+        pop = resetCue(pop, next_level_id)
+      });
+
+
+      $('#up').on("click", function(evt){
+        var next_level_id = video.get("level") + 1
+        pop = resetCue(pop, next_level_id)
+      })
+
+      App.Events.on('step:up', function() {
+        var next_level_id = video.get("level") + 1
+        pop = resetCue(pop, next_level_id)
+      });
+
 
 
     });
-    steps.fetch()
-
 
 });
