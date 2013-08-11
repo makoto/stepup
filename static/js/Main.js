@@ -34,19 +34,14 @@ $( document ).ready(function() {
       })
 
       $('#next').on("click", function(evt){
-        step = steps.next()
-        $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
-        $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
-        
-        pop.cue( step.get("end_at"), function() {
-          this.currentTime( step.get("start_at") );
-        });
-        pop.currentTime( step.get("start_at") );
-        pop.play();
+        moveCue(pop, steps.next())
       })
 
       $('#back').on("click", function(evt){
-        step = steps.back()
+        moveCue(pop, steps.back())
+      })
+
+      var moveCue = function(pop, step){
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
 
@@ -55,7 +50,7 @@ $( document ).ready(function() {
         });
         pop.currentTime( step.get("start_at") );
         pop.play();
-      })
+      }
 
       var resetCue = function(pop, levelid){
         steps = levels.getSteps(levelid)
