@@ -1,17 +1,16 @@
 (function() {
   var Steps = Backbone.Collection.extend({
-    initialize: function(opts){
-      this.video = opts.video;
+    initialize: function(){
       this.on("sync", function(data){
-        opts.video.set("step", data.first().get("id"))
+        App.video.set("step", data.first().get("id"))
       })
     },
     current: function(){
-      return this.findWhere({id:this.video.get("step")})
+      return this.findWhere({id:App.video.get("step")})
     },
     next: function(){
-      this.video.set("step", this.video.get("step") + 1)
-      return this.findWhere({id:this.video.get("step")})
+      App.video.set("step", App.video.get("step") + 1)
+      return this.findWhere({id:App.video.get("step")})
     },
     model: App.Step,
     url: function () {
