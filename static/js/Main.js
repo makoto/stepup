@@ -1,5 +1,10 @@
 $( document ).ready(function() {
     video = new App.Video()
+    var stepsView = new App.StepsView({
+        el: '#score',
+        model: video
+    });
+    App.stepsView = stepsView
     controlsView = new App.ControlsView({model:video})
     steps = new App.Steps()
 
