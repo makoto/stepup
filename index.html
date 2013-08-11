@@ -31,28 +31,28 @@
         <ul class="steps">
             <li class="step-long">
                 <ul>
-                    <li><button></button></li>
-                    <li><button></button></li>
+                    <li><button data-position="1" data-step="long"></button></li>
+                    <li><button data-position="2" data-step="long"></button></li>
                 </ul>
             </li>
             <li class="step-med">
                 <ul>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
+                    <li><button data-position="1" data-step="med"></button></li>
+                    <li><button data-position="2" data-step="med"></button></li>
+                    <li><button data-position="3" data-step="med"></button></li>
+                    <li><button data-position="4" data-step="med"></button></li>
                 </ul>
             </li>
             <li class="step-short">
                 <ul>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
-                    <li><button></button></li>
+                    <li><button data-position="1" data-step="short"></button></li>
+                    <li><button data-position="2" data-step="short"></button></li>
+                    <li><button data-position="3" data-step="short"></button></li>
+                    <li><button data-position="4" data-step="short"></button></li>
+                    <li><button data-position="5" data-step="short"></button></li>
+                    <li><button data-position="6" data-step="short"></button></li>
+                    <li><button data-position="7" data-step="short"></button></li>
+                    <li><button data-position="8" data-step="short"></button></li>
                 </ul>
             </li>
         </ul>
@@ -83,14 +83,15 @@
     <script src="static/js/libs/popcorn-complete.min.js"></script>
     <script src="static/js/libs/underscore-min.js"></script>
     <script src="static/js/libs/backbone-min.js"></script>
-    <!-- Models  -->
-    <script src="static/js/video.js"></script>
-    <script src="static/js/step.js"></script>
-    <!-- Collections  -->
-    <script src="static/js/steps.js"></script>
-    <!-- Views  -->
-    <script src="static/js/view_helper.js"></script>
-    <script src="static/js/controls_view.js"></script>
     <script src="static/js/App.js"></script>
+    <script src="static/js/utils/events.js"></script>
+    <script src="static/js/utils/view_helper.js"></script>
+    <script src="static/js/models/video.js"></script>
+    <script src="static/js/models/step.js"></script>
+    <script src="static/js/collections/steps.js"></script>
+    <script src="static/js/views/keyboard_view.js"></script>
+    <script src="static/js/views/controls_view.js"></script>
+    <script src="static/js/views/measures_view.js"></script>
+    <script src="static/js/Main.js"></script>
   </body>
 </html>

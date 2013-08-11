@@ -1,4 +1,5 @@
-var ControlsView = Backbone.View.extend({
+(function() {
+  var ControlsView = Backbone.View.extend({
     el: $("#controls"),
     events: {
       'change input': 'speedChange'
@@ -11,4 +12,7 @@ var ControlsView = Backbone.View.extend({
       this.model.set("speed", d.target.value)
       $("#speed").html(d.target.value)
     }
-});
+  });
+
+ App.ControlsView = ControlsView
+}());
