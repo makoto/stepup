@@ -1,6 +1,17 @@
-(function(Backbone, $, _) {
+(function(Backbone, $, _, events) {
 
-    var MeasuresModel = Backbone.Model.extend();
+    var MeasuresModel = Backbone.Model.extend({
+
+        initialize: function() {
+            events.on('step:next', _.bind(this.next, this));
+        },
+
+        next: function() {
+            console.log('next!');
+        }
+
+    });
+
     var MeasuresView = Backbone.View.extend({
 
         events: {
@@ -9,8 +20,6 @@
 
         initialize: function() {
             this.model.on('change', _.bind(this.selectCell, this));
-
-            console.log('Init MeasuresView');
         },
 
         onClickButton: function(e) {
@@ -28,14 +37,16 @@
 
             if( !opts.changed.step || !opts.changed.position) { return; }
 
-            this.$el.find('.selected').removeClass('selected');
+            console.log(opts.changed);
+            this.$el.find('.selected-row').removeClass('selected-row');
+            this.$el.find('.selected-measure').removeClass('selected-measure');
 
             var changed = opts.changed,
                 $row    = this.$el.find('.step-' + changed.step ),
                 $button = $row.find('[data-position=' + changed.position + ']');
 
-            $row.addClass('selected');
-            $button.parent('li').addClass('.selected');
+            $row.addClass('selected-row');
+            $button.parent('li').addClass('.selected-measure');
 
         }
 
@@ -43,10 +54,9 @@
 
 
     var measuresModel = new MeasuresModel();
-    var measuresView = new MeasuresView({ 
+    var measuresView = new MeasuresView({
         el: '#score',
         model: measuresModel
     });
 
-
-}(Backbone, $, _));
+}(Backbone, $, _, eventBus));
