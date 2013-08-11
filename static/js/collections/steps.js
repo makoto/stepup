@@ -12,7 +12,7 @@
       App.video.set("step", App.video.get("step") + 1)
       return this.findWhere({id:App.video.get("step")})
     },
-    back: function(){
+    prev: function(){
       App.video.set("step", App.video.get("step") - 1)
       return this.findWhere({id:App.video.get("step")})
     },

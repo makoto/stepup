@@ -7,7 +7,7 @@ $( document ).ready(function() {
         model: video
     });
     controlsView = new App.ControlsView({model:video})
-
+    keyboardView = new App.KeyboardView({el:document})
     levels = new App.Levels({video: video})
     levels.fetch()
     levels.on("sync", function(eventName) {
@@ -37,9 +37,18 @@ $( document ).ready(function() {
         moveCue(pop, steps.next())
       })
 
+      App.Events.on('step:next', function() {
+        moveCue(pop, steps.next());
+      });
+
       $('#back').on("click", function(evt){
-        moveCue(pop, steps.back())
+        moveCue(pop, steps.prev())
       })
+
+      App.Events.on('step:prev', function() {
+        moveCue(pop, steps.prev());
+      });
+
 
       var moveCue = function(pop, step){
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
@@ -74,15 +83,27 @@ $( document ).ready(function() {
         return pop
       }
 
-      $('#down').on("click", function(evt){
+      $('#down').on("click", function(){
         var next_level_id = video.get("level") - 1
         resetCue(pop, next_level_id)
       })
+
+      App.Events.on('step:down', function() {
+        var next_level_id = video.get("level") - 1
+        resetCue(pop, next_level_id)
+      });
+
 
       $('#up').on("click", function(evt){
         var next_level_id = video.get("level") + 1
         resetCue(pop, next_level_id)
       })
+
+      App.Events.on('step:up', function() {
+        var next_level_id = video.get("level") + 1
+        resetCue(pop, next_level_id)
+      });
+
 
 
     });
