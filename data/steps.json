@@ -2,7 +2,13 @@
 {
   "id":1,
   "start_at":146,
-  "end_at":148
+  "end_at":148,
+  "levels":[
+    {"id":1, "start_step_id":1, "end_step_id":1},
+    {"id":2, "start_step_id":1, "end_step_id":2},
+    {"id":3, "start_step_id":1, "end_step_id":3},
+    {"id":4, "start_step_id":1, "end_step_id":4}
+  ]
 },
 {
   "id":2,
