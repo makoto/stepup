@@ -57,13 +57,10 @@ $( document ).ready(function() {
         pop.play();
       })
 
-
-
-      $('#up').on("click", function(evt){
-        var next_level_id = video.get("level") + 1
-        steps = levels.getSteps(next_level_id)
-        step = levels.getStep(next_level_id, pop.currentTime())
-        video.set({"step":step.get('id'), "level":next_level_id})
+      var resetCue = function(pop, levelid){
+        steps = levels.getSteps(levelid)
+        step = levels.getStep(levelid, pop.currentTime())
+        video.set({"step":step.get('id'), "level":levelid})
 
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
@@ -79,7 +76,19 @@ $( document ).ready(function() {
         });
         pop.currentTime( step.get('start_at'));
         pop.play();
+        return pop
+      }
+
+      $('#down').on("click", function(evt){
+        var next_level_id = video.get("level") - 1
+        resetCue(pop, next_level_id)
       })
+
+      $('#up').on("click", function(evt){
+        var next_level_id = video.get("level") + 1
+        resetCue(pop, next_level_id)
+      })
+
 
     });
 
