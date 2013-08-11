@@ -35,19 +35,19 @@ $( document ).ready(function() {
       })
 
       $('#next').on("click", function(evt){
-        moveCue(pop, steps.next())
+        pop = moveCue(pop, steps.next())
       })
 
       App.Events.on('step:next', function() {
-        moveCue(pop, steps.next());
+        pop = moveCue(pop, steps.next());
       });
 
       $('#back').on("click", function(evt){
-        moveCue(pop, steps.prev())
+        pop = moveCue(pop, steps.prev())
       })
 
       App.Events.on('step:prev', function() {
-        moveCue(pop, steps.prev());
+        pop = moveCue(pop, steps.prev());
       });
 
 
@@ -60,6 +60,7 @@ $( document ).ready(function() {
         });
         pop.currentTime( step.get("start_at") );
         pop.play();
+        return pop
       }
 
       var resetCue = function(pop, levelid){
@@ -86,23 +87,23 @@ $( document ).ready(function() {
 
       $('#down').on("click", function(){
         var next_level_id = video.get("level") - 1
-        resetCue(pop, next_level_id)
+        pop = resetCue(pop, next_level_id)
       })
 
       App.Events.on('step:down', function() {
         var next_level_id = video.get("level") - 1
-        resetCue(pop, next_level_id)
+        pop = resetCue(pop, next_level_id)
       });
 
 
       $('#up').on("click", function(evt){
         var next_level_id = video.get("level") + 1
-        resetCue(pop, next_level_id)
+        pop = resetCue(pop, next_level_id)
       })
 
       App.Events.on('step:up', function() {
         var next_level_id = video.get("level") + 1
-        resetCue(pop, next_level_id)
+        pop = resetCue(pop, next_level_id)
       });
 
 
