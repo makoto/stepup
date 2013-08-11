@@ -1,0 +1,16 @@
+/* Instructions Reveal */
+
+.instructions {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  width: 100%;
+  text-decoration: none;
+  transition:1s;
+/* Safari */
+-webkit-transition:1s;
+}
+#keyboard:target, #leap:target{
+  line-height: 1em;
+  height: auto;
+}
