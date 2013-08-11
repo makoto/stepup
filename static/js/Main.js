@@ -6,7 +6,7 @@ $( document ).ready(function() {
     });
     App.stepsView = stepsView
     controlsView = new App.ControlsView({model:video})
-    steps = new App.Steps()
+    steps = new App.Steps({video: video})
 
     steps.on("sync", function(eventName) {
       var step = steps.current()
@@ -17,6 +17,7 @@ $( document ).ready(function() {
       })
 
       $('#play').on("click", function(evt){
+        video.set({"step":1, "level":1})
         pop.on("timeupdate", function(){
           $('#current-time').html(App.ViewHelper.formatTime(pop.currentTime()))
         })
