@@ -6,24 +6,42 @@
   "levels":[
     {"id":1, "start_step_id":1, "end_step_id":1},
     {"id":2, "start_step_id":1, "end_step_id":2},
-    {"id":3, "start_step_id":1, "end_step_id":3},
-    {"id":4, "start_step_id":1, "end_step_id":4}
+    {"id":3, "start_step_id":1, "end_step_id":4},
+    {"id":4, "start_step_id":1, "end_step_id":8}
   ]
 },
 {
   "id":2,
   "start_at":149,
-  "end_at":151
+  "end_at":151,
+  "levels":[
+    {"id":1, "start_step_id":2, "end_step_id":2},
+    {"id":2, "start_step_id":1, "end_step_id":2},
+    {"id":3, "start_step_id":1, "end_step_id":4},
+    {"id":4, "start_step_id":1, "end_step_id":8}
+  ]
 },
 {
   "id":3,
   "start_at":151,
-  "end_at":154
+  "end_at":154,
+  "levels":[
+    {"id":1, "start_step_id":3, "end_step_id":3},
+    {"id":2, "start_step_id":3, "end_step_id":4},
+    {"id":3, "start_step_id":1, "end_step_id":4},
+    {"id":4, "start_step_id":1, "end_step_id":8}
+  ]
 },
 {
   "id":4,
   "start_at":154,
-  "end_at":158
+  "end_at":158,
+  "levels":[
+    {"id":1, "start_step_id":4, "end_step_id":4},
+    {"id":2, "start_step_id":3, "end_step_id":4},
+    {"id":3, "start_step_id":1, "end_step_id":4},
+    {"id":4, "start_step_id":1, "end_step_id":8}
+  ]
 },
 {
   "id":5,
