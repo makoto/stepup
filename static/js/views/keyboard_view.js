@@ -45,4 +45,4 @@
     });
 
   App.KeyboardView = KeyboardView
-}(Backbone, jQuery, _, eventBus));
+}(Backbone, jQuery, _, App.Events));
