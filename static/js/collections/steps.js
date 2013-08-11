@@ -12,6 +12,10 @@
       App.video.set("step", App.video.get("step") + 1)
       return this.findWhere({id:App.video.get("step")})
     },
+    back: function(){
+      App.video.set("step", App.video.get("step") - 1)
+      return this.findWhere({id:App.video.get("step")})
+    },
     model: App.Step,
     url: function () {
       return "/data/steps.json"
