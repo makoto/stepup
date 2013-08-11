@@ -18,6 +18,7 @@ $( document ).ready(function() {
       $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
       
       pop = Popcorn("#video");
+      pop.controls(false)
 
       video.on("change:speed", function(){
         pop.playbackRate(this.get("speed"))
