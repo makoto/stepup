@@ -44,5 +44,5 @@
         el: document
     });
 
-
+  App.KeyboardView = KeyboardView
 }(Backbone, jQuery, _, eventBus));

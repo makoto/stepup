@@ -49,7 +49,6 @@
             $button.parent('li').addClass('.selected-measure');
 
         }
-
     });
 
 
@@ -58,5 +57,5 @@
         el: '#score',
         model: measuresModel
     });
-
+    App.MeasuresView = MeasuresView
 }(Backbone, $, _, eventBus));
