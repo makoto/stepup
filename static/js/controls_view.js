@@ -5,9 +5,9 @@ var ControlsView = Backbone.View.extend({
     },
 
     initialize: function() {
+      $("#speed").html(this.model.get("speed"))
     },
     speedChange: function(d){
-      // console.log('changed', this.model.get("speed"), d.target.value)
       this.model.set("speed", d.target.value)
       $("#speed").html(d.target.value)
     }
