@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
       $('#play').on("click", function(evt){
         pop.on("timeupdate", function(){
-          $('#current-time').html(pop.currentTime())
+          $('#current-time').html(ViewHelper.formatTime(pop.currentTime()))
         })
         pop.cue( step.get("end_at"), function() {
           this.currentTime( step.get("start_at") );
