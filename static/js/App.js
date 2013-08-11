@@ -31,7 +31,7 @@ $( document ).ready(function() {
       })
 
       $('#next').on("click", function(evt){
-        step = steps.shift()
+        step = steps.next()
         pop.cue( step.get("end_at"), function() {
           this.currentTime( step.get("start_at") );
         });
