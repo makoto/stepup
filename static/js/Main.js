@@ -6,7 +6,6 @@ $( document ).ready(function() {
         el: '#score',
         model: video
     });
-    App.stepsView = stepsView
     controlsView = new App.ControlsView({model:video})
     steps = new App.Steps({video: video})
 
