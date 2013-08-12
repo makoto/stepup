@@ -17,6 +17,7 @@ Use this app to loop video, making activities like learning instruments much eas
 This app was made during #Popathon on 11th August 2013.
 Special thanks to the organisers and Mozilla.  
 
-- Philo
-- Gil
+- [Philo](https://twitter.com/phivk)
+- [Gil](https://twitter.com/Learningtocount)
 - Mozilla London for offering venues
+- [The Ukulele Teacher](http://www.youtube.com/watch?v=FANC-qvJFhQ)
