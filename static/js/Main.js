@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    var cues = []
     var video = new App.Video()
     App.video = video
     video.set({"step":1, "level":1})
@@ -28,9 +29,12 @@ $( document ).ready(function() {
         pop.on("timeupdate", function(){
           $('#current-time').html(App.ViewHelper.formatTime(pop.currentTime()))
         })
-        pop.cue( step.get("end_at"), function() {
+        removeCues()
+        pop.cue( 'id' + step.get("end_at"), function() {
           this.currentTime( step.get("start_at") );
         });
+        cues.push(step.get("end_at"))
+        pop.cue( 'id' + step.get("end_at"), step.get("end_at"))
         pop.currentTime( step.get("start_at") );
         pop.play();
       })
@@ -56,12 +60,24 @@ $( document ).ready(function() {
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
 
-        pop.cue( step.get("end_at"), function() {
+        removeCues()
+        pop.cue( 'id' + step.get("end_at"), function() {
           this.currentTime( step.get("start_at") );
         });
+        cues.push(step.get("end_at"))
+        pop.cue( 'id' + step.get("end_at"), step.get("end_at"))
+
         pop.currentTime( step.get("start_at") );
         pop.play();
         return pop
+      }
+
+      var removeCues = function(){
+        _.uniq(cues).forEach(function(c){
+          console.log('Removing id' + c)
+          pop.removeTrackEvent( 'id' + c);
+        })
+        cues = []
       }
 
       var resetCue = function(pop, levelid){
@@ -71,17 +87,16 @@ $( document ).ready(function() {
 
         $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
-
-        pop.destroy();
-        $('#video').empty()
-        pop = Popcorn.youtube("#video", "http://www.youtube.com/watch?v=FANC-qvJFhQ");
         pop.on("timeupdate", function(){
           $('#current-time').html(App.ViewHelper.formatTime(pop.currentTime()))
         })
-
+        removeCues()
         pop.cue( step.get('end_at'), function() {
           this.currentTime( step.get('start_at') );
         });
+        cues.push(step.get("end_at"))
+        pop.cue( 'id' + step.get("end_at"), step.get("end_at"))
+                
         pop.currentTime( step.get('start_at'));
         pop.play();
         return pop
