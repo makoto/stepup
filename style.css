@@ -137,3 +137,8 @@ section#score .selected-step button {
 section#score .selected-step button:before {
 	content: "\e000";
 }
+#video{
+  width:500px;
+  height:300px;
+  margin:0 auto;
+}
