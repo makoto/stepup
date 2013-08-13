@@ -17,7 +17,7 @@ $( document ).ready(function() {
       $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
       $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
       
-      pop = Popcorn("#video");
+      pop = Popcorn.youtube("#video", "http://www.youtube.com/watch?v=FANC-qvJFhQ");
       pop.controls(false)
 
       video.on("change:speed", function(){
@@ -73,7 +73,8 @@ $( document ).ready(function() {
         $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
 
         pop.destroy();
-        pop = Popcorn("#video");
+        $('#video').empty()
+        pop = Popcorn.youtube("#video", "http://www.youtube.com/watch?v=FANC-qvJFhQ");
         pop.on("timeupdate", function(){
           $('#current-time').html(App.ViewHelper.formatTime(pop.currentTime()))
         })
