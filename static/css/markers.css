@@ -1,0 +1,47 @@
+/* Hide some shit  */
+#video, #leap, #keyboard, header, p{
+    display: none;
+}
+
+.marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #dedede;
+}
+
+.marker:after {
+    content: "";
+    display: block;
+    height: 0px;
+    width: 0px;
+    background: none;
+    border: 20px solid #dedede;
+    border-top: 20px solid transparent;
+    border-left: none;
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -40px;
+}
+
+#track {
+    background: cyan;
+    width: 400px;
+    height: 40px;
+    position: relative;
+    margin: 20px auto 0;
+}
+
+#track .marker {
+    top: 60px;
+    z-index: 1;
+}
+
+#marker-source {
+    background: turquoise;
+    width: 400px;
+    height: 100px;
+    position: relative;
+    margin: 20px auto 0;
+}
+

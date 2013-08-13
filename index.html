@@ -11,8 +11,12 @@
     <meta name="description" content="">
     <meta name="author" content="Craig Dallimore">
     <link rel="shortcut icon" type="image/png" href="static/favicon.png">
-    <link rel="stylesheet" href="static/dist/app.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="static/css/old.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/markers.css">
+    <link rel="stylesheet" href="markers.css">
+
     <!--[if (gte IE 6)&(lte IE 8)]>
         <script src="static/js/libs/selectivizr-1.0.2.min.js"></script>
     <![endif]-->
@@ -99,16 +103,25 @@
         </ul>
     </section>
 
+    <section>
+        <div id="track"></div>
+        <div id="marker-source">
+            <div class="marker"></div>
+        </div>
+    <section>
     <!--[if lt IE 9]>
         <script src="static/js/libs/jquery-1.10.1.min.js"></script>
     <![endif]-->
     <!--[if gte IE 9]><!-->
         <script src="static/js/libs/jquery-2.0.2.min.js"></script>
     <!--<![endif]-->
+
+    <script src="static/js/libs/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="static/js/libs/popcorn-complete.min.js"></script>
     <script src="static/js/libs/underscore-min.js"></script>
     <script src="static/js/libs/backbone-min.js"></script>
     <script src="static/js/libs/leap.min.js"></script>
+
     <script src="static/js/App.js"></script>
     <script src="static/js/utils/events.js"></script>
     <script src="static/js/utils/view_helper.js"></script>
@@ -119,6 +132,7 @@
     <script src="static/js/views/leapmotion_view.js"></script>
     <script src="static/js/views/controls_view.js"></script>
     <script src="static/js/views/steps_view.js"></script>
+    <script src="static/js/views/track_view.js"></script>
     <script src="static/js/Main.js"></script>
   </body>
 </html>
