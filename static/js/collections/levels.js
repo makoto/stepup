@@ -7,7 +7,7 @@
     },
     model: App.Level,
     url: function () {
-      return "http://makoto.github.io/stepup/data/levels.json"
+      return "./data/levels.json"
     },
     getStep: function(levelid, time) {
       var steps = this.getSteps(levelid)
