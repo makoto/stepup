@@ -4,7 +4,7 @@
     },
     model: App.Level,
     url: function () {
-      return "http://localhost:3001/videos.json"
+      return "http://stepupback.herokuapp.com/videos.json"
     }
   }); 
   App.Videos = Videos;
