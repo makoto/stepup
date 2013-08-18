@@ -1,24 +1,37 @@
 $( document ).ready(function() {
     var cues = []
-    var video = new App.Video()
-    App.video = video
-    video.set({"step":1, "level":1})
-    var stepsView = new App.StepsView({
-        el: '#score',
-        model: video
-    });
-    controlsView = new App.ControlsView({model:video})
-    keyboardView = new App.KeyboardView({el:document})
-    leapmotionView = new LeapmotionView({lm:Leap})
-    levels = new App.Levels({video: video})
-    levels.fetch()
-    levels.on("sync", function(eventName) {
-      steps = this.getSteps(video.get("level"))
+
+    levels = new App.Levels()
+    videos = new App.Videos()
+    videos.fetch()
+
+    videos.on("sync", function(){
+      // Assuming only one query param for onw
+      var video_id = location.search.split("=")[1]
+
+      if (video_id) {
+        App.video = videos.where({id: parseInt(video_id)})[0]
+      }else{
+        App.video = videos.first()
+      };
+      App.video.set({"step":1, "level":1})
+      var stepsView = new App.StepsView({
+          el: '#score',
+          model: App.video
+      });
+      controlsView = new App.ControlsView({model:App.video})
+      keyboardView = new App.KeyboardView({el:document})
+      leapmotionView = new LeapmotionView({lm:Leap})
+      levels.reset(App.video.get("levels"))
+    })
+
+    levels.on("reset", function(eventName) {
+      steps = this.getSteps(App.video.get("level"))
       var step = steps.current()
       $('#from').html(App.ViewHelper.formatTime(step.get('start_at')))
       $('#to').html(App.ViewHelper.formatTime(step.get('end_at')))
       
-      var pop = Popcorn.youtube("#video", "http://www.youtube.com/watch?v=FANC-qvJFhQ");
+      var pop = Popcorn.youtube("#video", App.video.get("url"));
       pop.controls(false)
       pop.on("timeupdate", function(){
         $('#current-time').html(App.ViewHelper.formatTime(pop.currentTime()))
@@ -50,13 +63,13 @@ $( document ).ready(function() {
       var resetCue = function(levelid){
         steps = levels.getSteps(levelid)
         step = levels.getStep(levelid, pop.currentTime())
-        video.set({"step":step.get('id'), "level":levelid})
+        App.video.set({"step":step.get('id'), "level":levelid})
 
         removeCues()
         moveCue(step)
       }
 
-      video.on("change:speed", function(){
+      App.video.on("change:speed", function(){
         pop.playbackRate(this.get("speed"))
       })
 
@@ -81,27 +94,25 @@ $( document ).ready(function() {
       });
 
       $('#down').on("click", function(){
-        var next_level_id = video.get("level") - 1
+        var next_level_id = App.video.get("level") - 1
         resetCue(next_level_id)
       })
 
       App.Events.on('step:down', function() {
-        var next_level_id = video.get("level") - 1
+        var next_level_id = App.video.get("level") - 1
         resetCue(next_level_id)
       });
 
 
       $('#up').on("click", function(evt){
-        var next_level_id = video.get("level") + 1
+        var next_level_id = App.video.get("level") + 1
         resetCue(next_level_id)
       })
 
       App.Events.on('step:up', function() {
-        var next_level_id = video.get("level") + 1
+        var next_level_id = App.video.get("level") + 1
         resetCue(next_level_id)
       });
-
-
 
     });
 
