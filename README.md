@@ -21,3 +21,7 @@ Special thanks to the organisers and Mozilla.
 - [Gil](https://twitter.com/Learningtocount)
 - Mozilla London for offering venues
 - [The Ukulele Teacher](http://www.youtube.com/watch?v=FANC-qvJFhQ)
+
+## License
+
+This software is released under [MIT](http://www.opensource.org/licenses/MIT)
