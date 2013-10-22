@@ -1,1 +1,141 @@
-The new StepUp is at <a href="http://www.stepup.io">StepUp.io</a>
+<!DOCTYPE html>
+<!--[if lte IE 8]><html class='no-js oldie' lang='en'><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Step Up</title>
+    <meta name="description" content="">
+    <meta name="author" content="Craig Dallimore">
+    <link rel="shortcut icon" type="image/png" href="static/favicon.png">
+    <link rel="stylesheet" href="static/dist/app.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!--[if (gte IE 6)&(lte IE 8)]>
+        <script src="static/js/libs/selectivizr-1.0.2.min.js"></script>
+    <![endif]-->
+    <script src="static/js/libs/modernizr-2.6.2.min.js"></script>
+</head>
+    <body>
+
+    <header>
+        <a href="#"><img src="logo.png" /></a>
+    </header>
+    
+    <h1>Step Up</h1>
+    <p>Start with the shortest loops at the bottom, and then Step Up to longer loops when you feel ready to progress.</p>
+
+    <noscript>
+        <p>This app works better with JavaScript enabled.</p>
+    </noscript>
+
+    <div id="video">
+    </div>
+    <div>
+      <button id="play">Play</button>
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+      <button id="up">Up</button>
+      <button id="down">Down</button>
+    </div>
+    
+
+    <section class="instructionBtns">
+        <a href="#keyboard"><button>Keyboard Instructions</button></a>
+        <a href="#leap"><button>Leap Motion Instructions</button></a>
+    </section>
+
+    <section id="keyboard" class="instructions">
+        To navigate between the loops, use the arrow keys (&uarr;&larr;&darr;&rarr;)
+        <a href="#">Close</a>
+    </section>
+
+    <section id="leap" class="instructions">
+        To navigate between the loops using Leap Motion swipe left, right, bottom or top.
+        <a href="#">Close</a>
+    </section>
+
+    <div class="foo" style="font-weight:bold; font-size:150%">
+      Time:<span id="current-time">
+        00:00
+      </span>
+      Speed:
+      <span id="speed">
+      </span>
+      From:
+      <span id="from">
+      </span>
+      To:
+      <span id="to">
+      </span>
+    </div>
+
+
+    <section id="score">
+        <ul class="levels">
+            <li class="level-4">
+                <ul>
+                    <li><button data-step="1" data-level="3"></button></li>
+                </ul>
+            </li>
+            <li class="level-3">
+                <ul>
+                    <li><button data-step="1" data-level="3"></button></li>
+                    <li><button data-step="2" data-level="3"></button></li>
+                </ul>
+            </li>
+            <li class="level-2">
+                <ul>
+                    <li><button data-step="1" data-level="2"></button></li>
+                    <li><button data-step="2" data-level="2"></button></li>
+                    <li><button data-step="3" data-level="2"></button></li>
+                    <li><button data-step="4" data-level="2"></button></li>
+                </ul>
+            </li>
+            <li class="level-1">
+                <ul>
+                    <li><button data-step="1" data-level="1"></button></li>
+                    <li><button data-step="2" data-level="1"></button></li>
+                    <li><button data-step="3" data-level="1"></button></li>
+                    <li><button data-step="4" data-level="1"></button></li>
+                    <li><button data-step="5" data-level="1"></button></li>
+                    <li><button data-step="6" data-level="1"></button></li>
+                    <li><button data-step="7" data-level="1"></button></li>
+                    <li><button data-step="8" data-level="1"></button></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!--[if lt IE 9]>
+        <script src="static/js/libs/jquery-1.10.1.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+        <script src="static/js/libs/jquery-2.0.2.min.js"></script>
+    <!--<![endif]-->
+    <script src="static/js/libs/popcorn/popcorn.js"></script>
+    <script src="static/js/libs/popcorn/popcorn.player.js"></script>
+    <script src="static/js/libs/popcorn/popcorn.youtube.js"></script>
+    <script src="static/js/libs/popcorn/popcorn._MediaElementProto.js"></script>
+    <script src="static/js/libs/popcorn/popcorn.HTMLYouTubeVideoElement.js"></script>
+    <script src="static/js/libs/underscore-min.js"></script>
+    <script src="static/js/libs/backbone-min.js"></script>
+    <script src="static/js/libs/leap.min.js"></script>
+    <script src="static/js/App.js"></script>
+    <script src="static/js/utils/events.js"></script>
+    <script src="static/js/utils/view_helper.js"></script>
+    <script src="static/js/models/level.js"></script>
+    <script src="static/js/models/video.js"></script>
+    <script src="static/js/models/step.js"></script>
+    <script src="static/js/collections/steps.js"></script>
+    <script src="static/js/collections/levels.js"></script>
+    <script src="static/js/collections/videos.js"></script>
+    <script src="static/js/views/keyboard_view.js"></script>
+    <script src="static/js/views/leapmotion_view.js"></script>
+    <script src="static/js/views/controls_view.js"></script>
+    <script src="static/js/views/steps_view.js"></script>
+    <script src="static/js/Main.js"></script>
+  </body>
+</html>
